@@ -67,6 +67,17 @@ h4 {
   color: var(---main-lite-color);
 }
 
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
 /*========= END COMPONENTS ==========*/
 
 /*========= HEADER =========*/
@@ -83,7 +94,8 @@ h4 {
   line-height: 1.25;
   color: var(--main-lite-color);
   text-decoration: none;
-  padding: 40px 20px;
+  padding-top: 40px;
+  padding-bottom: 39px;
   display: inline-block;
 }
 
@@ -92,9 +104,26 @@ h4 {
   color: var(--main-background);
 }
 
+.navigation-list-item:not(:last-child) {
+  margin-right: 40px;
+}
+
 .navigation-list {
   display: flex;
   justify-content: flex-end;
+}
+
+.navigation-list-item {
+  position: relative;
+}
+
+.current::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border: 2px solid #ffffff;
 }
 
 /*========= END HEADER =========*/
